@@ -77,10 +77,6 @@ Frontend will run at : http://localhost:3000
 Backend will run at : http://localhost:5000
 
 
-* #### Now, Run npm start in back-end-redbus as well as front-end-redbus folder in two separate terminals to start the backend and frontend
-
-* #### Now you can access the app at this URL: http://localhost:3000
-
 ## Technologies used
   
   * React
