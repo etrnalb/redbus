@@ -10,19 +10,84 @@ In this project , we have tried to make a perfect clone of redbus.in.
 
 # Steps to install the project:
 
-## Install basic Software:
-* Install NodeJS
-* Install VS Code
-* Install Git
+## Update system
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 
-## Clone the following git repository inside any folder:
+## install git
+```bash
+sudo apt install git -y
+```
 
-* https://github.com/nitansh11/redbus
+##  install Node.js + npm
+This project works best on Node 16 or 18.
+```bash
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+```
 
-##  Open the cloned git repo in VS Code and install the required dependencies.
+## Install MongoDB
+```bash
+sudo apt install -y mongodb
+sudo systemctl enable mongodb
+sudo systemctl start mongodb
+```
+Check if its running. 
+```bash
+systemctl status mongodb
+```
 
-* #### Open a terminal and make sure you are in the working directory folder (Inside redbus folder go to : redbus/front-end-redbus and redbus/back-end-redbus), run this command to install the required project dependencies in both back-end and front-end folder.
-  * npm install   
+## Backend setup
+```bash
+cd back-end-redbus
+npm install
+```
+Create .env file in back-end-redbus/.env
+```bash
+PORT=5000
+NODE_ENV=development
+MONGO_URI=mongodb://localhost:27017/redbus
+JWT_SECRET=supersecretkey123
+STRIPE_SECRET_KEY=sk_test_yourStripeSecretKey
+STRIPE_PUBLIC_KEY=pk_test_yourStripePublicKey
+CLIENT_URL=http://localhost:3000
+```
+Run backend:
+```bash
+npm start
+```
+
+## Frontend setup
+Open a new terminal:
+```bash
+cd ~/redbus/front-end-redbus
+npm install
+```
+Fix for Node17+
+add this before running:
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+Then start:
+```bash
+npm start
+```
+Frontend will run at : http://localhost:3000
+Backend will run at : http://localhost:5000
+
+##Verify
+Visit http://localhost:3000 in your browser.
+Register/login → should hit backend.
+MongoDB should show collections being created:
+```bash
+mongo
+use redbus
+show collections
+```
+
+
+
 
 * #### Now, Run npm start in back-end-redbus as well as front-end-redbus folder in two separate terminals to start the backend and frontend
 
