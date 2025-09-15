@@ -76,18 +76,6 @@ npm start
 Frontend will run at : http://localhost:3000
 Backend will run at : http://localhost:5000
 
-##Verify
-Visit http://localhost:3000 in your browser.
-Register/login → should hit backend.
-MongoDB should show collections being created:
-```bash
-mongo
-use redbus
-show collections
-```
-
-
-
 
 * #### Now, Run npm start in back-end-redbus as well as front-end-redbus folder in two separate terminals to start the backend and frontend
 
